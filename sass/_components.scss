@@ -223,15 +223,24 @@
 
 .overview {
     display: flex;
+    align-items: center;
     // justify-content: space-between; 
 
-    &__heading {
+    border-bottom: 1px solid var(--color-grey-light-2);
 
+    &__heading {
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        padding: 1.5rem 3rem;
     }
 
     &__stars {
         // flex: 1; when we use this the element covers the entire space available to it so using this is not convinient        
         margin-right: auto; //we use this because we want the element to only be the size of its content
+        display: flex; //we could have also used line height - 0 and font size - 0 to center the stars in their parent container
+        // align-items: center;
     }
 
     &__icon-star,
@@ -242,18 +251,80 @@
     }
 
     &__location {
-        
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon-location {
+        margin-right: .5rem;
     }
 
     &__rating {
+        background-color: var(--color-primary);
+        color: white;
+        margin-left: 3rem;
+        padding: 0 2.25rem;
 
+        align-self: stretch;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     &__rating-average {
-
+        font-size: 2.25rem;
+        font-weight: 300;
+        margin-bottom: -3px;
     }
 
     &__rating-count {
-
+        font-size: .8rem;
+        text-transform: uppercase;
     }
 }
+
+
+/////////////////////////////////////////
+// BUTTON INLIINE
+
+.btn-inline {
+    border: none;
+    color: var(--color-primary);
+    font-size: inherit;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+        color: var(--color-grey-dark-1);
+    }
+
+    &:focus {
+        outline: none;
+        animation: pulsate 1s infinite;  //the infinite keyword make the animation to happen infinite times as long as the button is focused 
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 1rem 4rem rgba(0,0,0,.25);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
