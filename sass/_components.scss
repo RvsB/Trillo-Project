@@ -202,3 +202,58 @@
     text-align: center;
     padding: 2.5rem;
 }
+
+
+/////////////////////////////////////////
+// GALLERY 
+
+.gallery {
+    display: flex;
+
+    &__photo {
+        width: 100%;
+        display: block; //we are displaying the imageaa as a block because thats to avoid the small space happening underneath the image which happens when we leave it as an inline element
+    }
+
+}
+
+
+/////////////////////////////////////////
+// HOTEL OVERVIEW
+
+.overview {
+    display: flex;
+    // justify-content: space-between; 
+
+    &__heading {
+
+    }
+
+    &__stars {
+        // flex: 1; when we use this the element covers the entire space available to it so using this is not convinient        
+        margin-right: auto; //we use this because we want the element to only be the size of its content
+    }
+
+    &__icon-star,
+    &__icon-location {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: var(--color-primary);
+    }
+
+    &__location {
+        
+    }
+
+    &__rating {
+
+    }
+
+    &__rating-average {
+
+    }
+
+    &__rating-count {
+
+    }
+}
