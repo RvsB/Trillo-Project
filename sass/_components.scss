@@ -129,18 +129,66 @@
 // SIDE NAVIGATION
 
 .side-nav {
+    
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
 
     &__item {
+        position: relative;
 
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 3px;
+            background-color: var(--color-primary);
+            transform: scaleY(0); //this property makes the before element grow in the x direction, and it starts in the middle because, the transform-origin property is set to center, so we can change it accordingly
+            transition: transform .2s,
+                        width .4s cubic-bezier(1,0,0,1) .2s, // this is the syntax for the shorthand transition property ***transition-property: ; transition-duration: ; transition-timing-function: ; transition-delay: ;****
+                        background-color .1s;
+                    }
+
+        &:hover::before,
+        &--active::before {
+            transform: scaleY(1);
+            width: 100%;
+        }
+
+        &:active::before {
+            background-color: var(--color-primary-light);
+        }
     }
 
-    &__link {
 
+    &__link {
+        &:link,
+        &:visited {
+            color: var(--color-grey-light-2);
+            text-decoration: none;
+            text-transform: uppercase;
+            display: block;
+            padding: 1.5rem 3rem;
+            position: relative; //unless and until we have a position specified the z-index doesnt work
+            z-index: 10;
+
+            display: flex;
+            align-items: center;
+        }
     }
 
     &__icon {
         width: 1.75rem;
         height: 1.75rem; //usually we size the svg icons as squares
+        margin-right: 2rem;
+        fill: currentColor; //currentColor property uses the current color of the parent element
+
     }
 
 }
