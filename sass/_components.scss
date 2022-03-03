@@ -427,14 +427,18 @@
         margin-right: .7rem;
         
         //older browsers;
-        // background-image: url(../images/chevron-thin-right.svg);
-        // background-size: cover;
+        background-image: url(../images/chevron-thin-right.svg); //while using this we cannnot change the  color of the icon
+        background-size: cover;
 
         //newer browsers -  we use masks //we used mask here because with background image we cannot change the color of the image in css so we use the mask property
-        background-color: var(--color-primary);
-        -webkit-mask-image: url(../images/chevron-thin-right.svg);
-        -webkit-mask-size: cover;
-
+        @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+            background-color: var(--color-primary);
+            -webkit-mask-image: url(../images/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            mask-image: url(../images/chevron-thin-right.svg);
+            mask-size: cover;
+            background-image: none;
+        }
     }
 }
 
