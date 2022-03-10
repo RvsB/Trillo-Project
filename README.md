@@ -1,6 +1,6 @@
 # Trillo-Project
 
-### **[Go to the Natours webpage](https://hotels-trillo.netlify.app)**
+### **[Go to the Trillo webpage](https://hotels-trillo.netlify.app)**
 
 A Website entirely based on Flexbox
 
